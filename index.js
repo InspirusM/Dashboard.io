@@ -12,16 +12,16 @@ client.config = config;
 
 client.commands = new Discord.Collection();
 
-fs.readdir("./commandes/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
 
   if(err) console.log(err);
 
-  let commandes = files.filter(f => f.split(".").pop() === "js");
+  let commands = files.filter(f => f.split(".").pop() === "js");
 
-  if(commandes.length <= 0) return console.log("Aucunes commandes trouvées :/");
+  if(commands.length <= 0) return console.log("Aucunes commandes trouvées :/");
 
 
-  commandes.forEach((f, i) =>{
+  commands.forEach((f, i) =>{
 
     let commande = require(`./commandes/${f}`);
 
